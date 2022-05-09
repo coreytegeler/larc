@@ -1,0 +1,17 @@
+/*
+Theme Name: LARC
+Author: Corey Tegeler
+Author URI: https://coreytegeler.com
+Description: WordPress theme for Lived Africana Religion in the time of COVID-19 (LARC)
+Version: 0.2.1
+Text Domain: mellon
+*/
+@import '../node_modules/bootstrap/scss/bootstrap-reboot.scss';
+@import '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import '../node_modules/bootstrap/scss/bootstrap-utilities.scss';
+@import 'vars';
+@import 'global';
+@import 'loops';
+@import 'single';
+@import 'home';
+@import 'utils';

@@ -1,0 +1,201 @@
+@use "sass:list";
+@use "sass:color";
+
+/*****************************
+************COLORS************
+*****************************/
+
+$black: #242423;
+$gray: #333533;
+$maize: #F0CB6E;
+$alabaster: #E8EDDF;
+$timberwolf: #CFDBD5;
+
+/*****************************
+************FONTS*************
+*****************************/
+
+@font-face {
+	font-family: "LeMurmue";
+	src: url("./fonts/lemurmue/LeMurmure-Regular.eot");
+	src: url("./fonts/lemurmue/LeMurmure-Regular.eot#iefix") format("embedded-opentype"),
+			 url("./fonts/lemurmue/LeMurmure-Regular.woff2") format("woff2"),
+			 url("./fonts/lemurmue/LeMurmure-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Wremena";
+	src: url("./fonts/wremena/wremena_regular-webfont.woff2") format("woff2"),
+			 url("./fonts/wremena/wremena_regular-webfont.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Wrem";
+	src: url("./fonts/wremena/wremena_bold-webfont.woff2") format("woff2"),
+			 url("./fonts/wremena/wremena_bold-webfont.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Wreme";
+	src: url("./fonts/wremena/wremena_light-webfont.woff2") format("woff2"),
+			 url("./fonts/wremena/wremena_light-webfont.woff") format("woff");
+	font-weight: light;
+	font-style: normal;
+}
+
+@mixin font-lemurmue {
+	font-family: "LeMurmue", "Helvetica", "Arial", sans-serif;
+}
+
+@mixin font-wremena {
+	font-family: "Wremena", "Helvetica", "Arial", sans-serif;
+}
+
+/*****************************
+*************TEXT*************
+*****************************/
+
+$text-xxs: .6rem;
+$text-xs: .8rem;
+$text-sm: 17px;
+$text-md: 1.2rem;
+$text-lg: 2rem;
+$text-xl: 3rem;
+$text-xxl: 5rem;
+$text-xxxl: 6.5rem;
+
+@mixin text-xxs {
+	font-size: $text-xxs;
+	line-height: 1.3em;
+}
+
+@mixin text-xs {
+	font-size: $text-xs;
+	line-height: 1.3em;
+}
+
+@mixin text-sm {
+	font-size: $text-sm;
+	line-height: 1.5em;
+}
+
+@mixin text-md {
+	font-size: $text-md;
+	line-height: 1.4em;
+}
+
+@mixin text-lg {
+	font-size: $text-lg;
+	line-height: 1.2em;
+}
+
+@mixin text-xl {
+	font-size: $text-xl;
+	line-height: 1em;
+}
+
+@mixin text-xxl {
+	font-size: $text-xxl;
+	line-height: 1em;
+	@include max-md {
+		font-size: $text-xl;
+	}
+}
+
+@mixin text-xxxl {
+	font-size: $text-xxxl;
+	line-height: 1em;
+	@include max-md {
+		font-size: $text-xl;
+	}
+}
+
+
+/*****************************
+*************SIZES************
+*****************************/
+
+$gutter-sm: calc(var(--bs-gutter-x) * .5);
+
+$container-sm: 540px;
+$container-md: 720px;
+$container-lg: 960px;
+$container-xl: 1140px;
+$container-xxl: 1320px;
+
+/*****************************
+*********BREAKPOINTS**********
+*****************************/
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+@mixin min-sm {
+	@media (min-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin min-md {
+	@media (min-width: #{$breakpoint-md}) {
+		@content;
+	}
+}
+
+@mixin min-lg {
+	@media (min-width: #{$breakpoint-lg}) {
+		@content;
+	}
+}
+
+@mixin min-xl {
+	@media (min-width: #{$breakpoint-xl}) {
+		@content;
+	}
+}
+
+@mixin min-xxl {
+	@media (min-width: #{$breakpoint-xxl}) {
+		@content;
+	}
+}
+
+@mixin max-sm {
+	@media (max-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin max-md {
+	@media (max-width: #{$breakpoint-md}) {
+		@content;
+	}
+}
+
+@mixin max-lg {
+	@media (max-width: #{$breakpoint-lg}) {
+		@content;
+	}
+}
+
+@mixin max-xl {
+	@media (max-width: #{$breakpoint-xl}) {
+		@content;
+	}
+}
+
+@mixin max-xxl {
+	@media (max-width: #{$breakpoint-xxl}) {
+		@content;
+	}
+}

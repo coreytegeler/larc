@@ -1,0 +1,143 @@
+@use 'sass:list';
+
+/*****************************
+************GLOBAL************
+*****************************/
+
+html, body {
+	@include font-wremena;
+	background: $alabaster;
+}
+
+html {
+	@include text-sm;
+}
+
+body {
+	
+}
+
+main#main {
+	margin: 0 auto;
+}
+
+section {
+	
+}
+
+a, a:hover {
+	color: $black;
+}
+
+p {
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+  font-weight: bold;
+	@include text-md;
+}
+
+figure {
+	margin: 0;
+}
+
+address {
+	margin: 0;	
+}
+
+/*****************************
+************HEADER************
+*****************************/
+
+header#site-header {
+	padding: 2rem 0;
+}
+
+#site-title {
+	@include font-lemurmue;
+	@include text-xxl;
+	a {
+		display: table;
+		margin: auto;
+		text-decoration: none;
+		&:hover {
+			color: $maize;
+		}
+	}
+}
+
+.search-form {
+	width: 100%;
+	position: relative;
+	margin: auto;
+}
+#header-search-input {
+	width: 100%;
+	margin: auto;
+}
+.search-submit {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background: none;
+	border: none;
+	color: transparent;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image: url(images/search-icon.svg);
+	background-repeat: no-repeat;
+	background-size: 70%;
+	background-position: center;
+}
+
+
+/*****************************
+************FOOTER************
+*****************************/
+
+#end {
+
+}
+
+
+#symbol {
+	
+}
+
+#back-to-top {
+	a {
+
+	}
+}
+
+/*****************************
+************FOOTER************
+*****************************/
+
+footer#site-footer {
+	padding: 3rem 0 2rem 0;
+	background: $gray;
+	color: $alabaster;
+	* {
+		color: $alabaster;
+	}
+	a:hover {
+		color: $maize;
+	}
+}
+#footer-site-title {
+	@include font-lemurmue;
+	@include text-xxxl;
+	a {
+		display: table;
+		margin: auto;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,132 @@
+.external {
+	&::after {
+		content: '';
+		width: 1em;
+		height: 1em;
+		display: inline-block;
+		margin-bottom: -.2em;
+		background-image: url(images/external.svg);
+		background-position: center;
+		background-size: cover;
+	}
+	&:hover::after,
+	a:hover &::after {
+		background-image: unset;
+		mask-image: url(images/external.svg);
+		mask-size: cover;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+.no-gutters {
+	margin-right: 0;
+	margin-left: 0;
+	> .col,
+	> [class*="col-"] {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.center-inner {
+	display: flex;
+	justify-content: center;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.bordered {
+	position: relative;
+	&::after {
+		content: "";
+		width: calc(100% + 1px);
+		height: calc(100% + 1px);
+		position: absolute;
+		left: -1px;
+		top: -1px;
+		border-width: 1px;
+		border-style: solid;
+		border-color: $black;
+		pointer-events: none;
+	}
+}
+
+.button {
+	display: table;
+	border: 1px solid;
+	padding: .5rem 1rem;
+	text-decoration: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"] {
+	padding: 0 0 0 1rem;
+	background: none;
+	border-width: 0 0 1px 1px;
+	border-style: solid;
+	border-radius: 0;
+}
+
+.text-xxs {
+	@include text-xxs;
+}
+.text-xs {
+	@include text-xs;
+}
+.text-sm {
+	@include text-sm;
+}
+.text-md {
+	@include text-md;
+}
+.text-lg {
+	@include text-lg;
+}
+.text-xl {
+	@include text-xl;
+}
+.text-xxl {
+	@include text-xxl;
+}
+.text-xxxl {
+	@include text-xxxl;
+}
+
+$colors: ("black": $black, "gray": $gray, "maize": $maize, "alabaster": $alabaster, "timberwolf": $timberwolf);
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  .text-#{$name} {
+    color: $color;
+  }
+}
+
+.bg-svg {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.bg-arrow-right-black {
+	width: 10em;
+	height: 5em;
+	background-image: url(images/arrow-right-black.svg);
+}
+.bg-arrow-top-black {
+	width: 5em;
+	height: 10em;
+	background-image: url(images/arrow-top-black.svg);
+}
