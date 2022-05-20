@@ -1,5 +1,6 @@
 <?php
 get_header();
+$resource = $post;
 ?>
 
 <div class="row">
@@ -15,18 +16,18 @@ get_header();
 	<div class="col-12 col-lg-6 col-xxl-5">
 		<header id="post-header">
 			<h1 id="post-title">
-				<?= $post->post_title; ?>
+				<?= $resource->post_title; ?>
 			</h1>
 			<div id="post-meta" class="row">
 				<div class="col-auto">
-					<?= get_field( 'author', $post ); ?>
+					<?= get_field( 'author', $resource ); ?>
 				</div>
 				<div class="col-auto">
-					<?= date_format( date_create( $post->post_date ), 'j F Y' ); ?>
+					<?= date_format( date_create( $resource->post_date ), 'j F Y' ); ?>
 				</div>
 			</div>
 		</header>
-		<?= the_content( $post ); ?>
+		<?= the_content( $resource ); ?>
 	</div>
 	<div class="col-12 col-xxl-2">
 		<div class="d-block d-lg-none d-xxl-block pt-5 pt-xxl-0">

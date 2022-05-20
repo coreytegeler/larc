@@ -1,8 +1,49 @@
 /*****************************
 *************LOOPS************
 *****************************/
+
+#filters {
+	width: 100%;
+	overflow-y: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 3rem;
+	fieldset {
+		width: 33.33%;
+		padding: 1rem;
+	}
+	.options {
+		width: 100%;
+		max-height: 9.125rem;
+		padding: .7rem 1rem;
+		overflow-y: scroll;
+		border: 1px solid $black;
+		background: $timberwolf;
+	}
+	label {
+		cursor: pointer;
+	}
+	input[type="checkbox"] {
+		width: .7em;
+		height: .7em;
+		display: inline-block;
+		background: $alabaster;
+		border: 1px solid $black;
+		border-radius: .25em;
+		appearance: none;
+		cursor: pointer;
+		&:checked {
+			background: $maize;
+		}
+	}
+}
+
 .posts {
 	align-items: stretch;
+	a {
+		width: 100%;
+		height: 100%;
+	}
 }
 article.post {
 	height: 100%;
@@ -23,10 +64,10 @@ article.post {
 	flex-direction: column;
 }
 header.post-header {
-
+	margin: auto;
 }
 .post-title {
-	margin: .5rem 0;
+	padding: .5rem 0;
 	font-weight: bold;
 	@include text-md;
 }
@@ -42,10 +83,10 @@ header.post-header {
 .post-meta {
 	@include text-xs;
 	&:first-child {
-		margin-bottom: 1rem;
+		padding-bottom: 1rem;
 	}
 	&:last-child {
-		margin-top: auto;
+		padding-top: 1rem;
 	}
 	.row {
 		justify-content: space-between;

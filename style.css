@@ -3,8 +3,8 @@ Theme Name: LARC
 Author: Corey Tegeler
 Author URI: https://coreytegeler.com
 Description: WordPress theme for Lived Africana Religion in the time of COVID-19 (LARC)
-Version: 0.2.1
-Text Domain: mellon
+Version: 0.2.2
+Text Domain: larc-theme
 */
 /*!
  * Bootstrap Reboot v5.1.3 (https://getbootstrap.com/)
@@ -10492,29 +10492,69 @@ header#site-header {
   padding: 2rem 0;
 }
 
-#site-title {
+#site-logo {
   font-family: "LeMurmue", "Helvetica", "Arial", sans-serif;
   font-size: 5rem;
   line-height: 1em;
 }
 @media (max-width: 768px) {
-  #site-title {
+  #site-logo {
     font-size: 3rem;
   }
 }
-#site-title a {
+#site-logo a {
   display: table;
   margin: auto;
   text-decoration: none;
 }
-#site-title a:hover {
+#site-logo a:hover {
   color: #F0CB6E;
+}
+
+#site-title {
+  text-align: center;
+  padding: 0 1rem;
+}
+@media (max-width: 992px) {
+  #site-title {
+    margin-bottom: 2rem;
+  }
+}
+
+#header-menu {
+  height: 100%;
+  display: flex;
+}
+#header-menu ul {
+  display: flex;
+  list-style: none;
+  margin: auto 0 0 auto;
+  padding: 0;
+}
+@media (max-width: 992px) {
+  #header-menu ul {
+    margin: 0 auto;
+  }
+}
+#header-menu li {
+  margin-right: 1em;
 }
 
 .search-form {
   width: 100%;
+  max-width: 20rem;
   position: relative;
-  margin: auto;
+  margin: auto auto 0 auto;
+}
+@media (max-width: 992px) {
+  .search-form {
+    margin: 0 2rem 0 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .search-form {
+    margin: 1rem 2rem 0 2rem;
+  }
 }
 
 #header-search-input {
@@ -10547,6 +10587,7 @@ header#site-header {
 ************FOOTER************
 *****************************/
 footer#site-footer {
+  margin: 6rem 0 0 0;
   padding: 3rem 0 2rem 0;
   background: #333533;
   color: #E8EDDF;
@@ -10577,8 +10618,50 @@ footer#site-footer a:hover {
 /*****************************
 *************LOOPS************
 *****************************/
+#filters {
+  width: 100%;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+#filters fieldset {
+  width: 33.33%;
+  padding: 1rem;
+}
+#filters .options {
+  width: 100%;
+  max-height: 9.125rem;
+  padding: 0.7rem 1rem;
+  overflow-y: scroll;
+  border: 1px solid #242423;
+  background: #CFDBD5;
+}
+#filters label {
+  cursor: pointer;
+}
+#filters input[type=checkbox] {
+  width: 0.7em;
+  height: 0.7em;
+  display: inline-block;
+  background: #E8EDDF;
+  border: 1px solid #242423;
+  border-radius: 0.25em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+#filters input[type=checkbox]:checked {
+  background: #F0CB6E;
+}
+
 .posts {
   align-items: stretch;
+}
+.posts a {
+  width: 100%;
+  height: 100%;
 }
 
 article.post {
@@ -10601,8 +10684,12 @@ article.post a:hover {
   flex-direction: column;
 }
 
+header.post-header {
+  margin: auto;
+}
+
 .post-title {
-  margin: 0.5rem 0;
+  padding: 0.5rem 0;
   font-weight: bold;
   font-size: 1.2rem;
   line-height: 1.4em;
@@ -10618,10 +10705,10 @@ article.post a:hover {
   line-height: 1.3em;
 }
 .post-meta:first-child {
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 .post-meta:last-child {
-  margin-top: auto;
+  padding-top: 1rem;
 }
 .post-meta .row {
   justify-content: space-between;
@@ -10633,97 +10720,98 @@ article.post a:hover {
 /*****************************
 ***********SINGLE*************
 *****************************/
-body.single main {
+body.single main, body.page main {
   position: relative;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 4rem;
 }
-body.single h1#post-title {
+body.single main h1#post-title, body.page main h1#post-title {
+  padding: 0 0 2rem 0;
   font-family: "Wremena", "Helvetica", "Arial", sans-serif;
   font-size: 3rem;
   line-height: 1em;
-  text-transform: uppercase;
+  text-align: center;
 }
-body.single #post-meta {
-  padding: 2rem 0 5rem 0;
+body.single main #post-meta, body.page main #post-meta {
+  padding: 0 0 5rem 0;
 }
-body.single p {
+body.single main p, body.single main li, body.page main p, body.page main li {
   font-size: 1.2rem;
   line-height: 1.4em;
   margin: 0 0 2rem 0;
 }
-body.single p:last-child {
+body.single main p:last-child, body.single main li:last-child, body.page main p:last-child, body.page main li:last-child {
   margin-bottom: 0;
 }
-body.single h2, body.single h3, body.single h4 {
+body.single main h2, body.single main h3, body.single main h4, body.page main h2, body.page main h3, body.page main h4 {
   margin: 4rem auto 2rem auto;
   text-align: center;
   font-weight: 900;
   font-size: 2rem;
   line-height: 1.2em;
 }
-body.single h2 {
+body.single main h2, body.page main h2 {
   font-size: 2rem;
   line-height: 1.2em;
 }
-body.single h3 {
+body.single main h3, body.page main h3 {
   font-size: 1.2rem;
   line-height: 1.4em;
 }
-body.single blockquote {
+body.single main blockquote, body.page main blockquote {
   max-width: 540px;
   margin: 2rem auto;
   font-weight: bold;
 }
-body.single blockquote p {
+body.single main blockquote p, body.page main blockquote p {
   font-size: 2rem;
   line-height: 1.2em;
 }
-body.single blockquote p:last-of-type {
+body.single main blockquote p:last-of-type, body.page main blockquote p:last-of-type {
   margin-bottom: 0.5rem;
 }
-body.single blockquote cite {
+body.single main blockquote cite, body.page main blockquote cite {
   font-size: 17px;
   line-height: 1.5em;
 }
-body.single img {
+body.single main img, body.page main img {
   width: 100%;
   height: auto;
 }
-body.single figure {
+body.single main figure, body.page main figure {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
 @media (max-width: 576px) {
-  body.single figure {
+  body.single main figure, body.page main figure {
     width: 100%;
     margin: 2rem auto;
     float: none;
   }
-  body.single figure img {
+  body.single main figure img, body.page main figure img {
     width: 100%;
     height: auto;
   }
 }
-body.single figcaption {
+body.single main figcaption, body.page main figcaption {
   font-size: 17px;
   line-height: 1.5em;
   margin-bottom: 0;
 }
-body.single .wp-block-embed > div {
+body.single main .wp-block-embed > div, body.page main .wp-block-embed > div {
   width: 100%;
   padding-bottom: 57%;
   margin: auto;
   position: relative;
 }
 @media (min-width: 992px) {
-  body.single .wp-block-embed > div {
+  body.single main .wp-block-embed > div, body.page main .wp-block-embed > div {
     width: 70%;
     padding-bottom: 40%;
   }
 }
-body.single .wp-block-embed iframe {
+body.single main .wp-block-embed iframe, body.page main .wp-block-embed iframe {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -10756,6 +10844,16 @@ body.single .wp-block-embed iframe {
 /*****************************
 *************HOME*************
 *****************************/
+body.home main {
+  padding-left: 0;
+  padding-right: 0;
+}
+body.home main h3 {
+  font-size: 2rem;
+  line-height: 1.2em;
+  margin-top: 0;
+}
+
 section#landing {
   min-height: 30rem;
   display: flex;
@@ -10839,6 +10937,10 @@ section#featured img {
   min-height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+section#resources a {
+  text-decoration: none;
 }
 
 .external::after {
@@ -11013,21 +11115,24 @@ input[type=search] {
 }
 
 .bg-svg {
-  background-size: contain;
-  background-position: center;
+  background-size: 2em auto;
+  background-position: right center;
   background-repeat: no-repeat;
 }
 
 .bg-arrow-right-black {
-  width: 10em;
-  height: 5em;
+  padding-right: 2.25em;
   background-image: url("data:image/svg+xml,%3csvg width='452' height='156' viewBox='0 0 452 156' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 67.83H373.745V87.83H0V67.83Z' fill='%23242423'/%3e %3cpath d='M373.745 0L451.489 77.745L373.745 155.489' fill='%23242423'/%3e %3c/svg%3e");
 }
 
 .bg-arrow-top-black {
-  width: 5em;
-  height: 10em;
+  padding-right: 2.25em;
   background-image: url("data:image/svg+xml,%3csvg width='155' height='451' viewBox='0 0 155 451' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cg clip-path='url(%23clip0_101_8)'%3e %3cpath fill-rule='evenodd' clip-rule='evenodd' d='M77.745 0L0 77.7444H67.83V451.489H87.83V77.7444H155.489L77.745 0Z' fill='%23242423'/%3e %3c/g%3e %3cdefs%3e %3cclipPath id='clip0_101_8'%3e %3crect width='155' height='451' fill='white'/%3e %3c/clipPath%3e %3c/defs%3e %3c/svg%3e");
+}
+
+.bg-arrow-right-alabaster {
+  padding-right: 2.25em;
+  background-image: url("data:image/svg+xml,%3csvg width='452' height='156' viewBox='0 0 452 156' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 67.83H373.745V87.83H0V67.83Z' fill='%23E8EDDF'/%3e %3cpath d='M373.745 0L451.489 77.745L373.745 155.489' fill='%23E8EDDF'/%3e %3c/svg%3e");
 }
 
 /*# sourceMappingURL=style.css.map*/

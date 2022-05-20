@@ -2,92 +2,93 @@
 ***********SINGLE*************
 *****************************/
 
-body.single {
+body.single, body.page {
 	main {
 		position: relative;
 		padding-left: 1rem;
 		padding-right: 1rem;
 		padding-bottom: 4rem;
-	}
-	h1#post-title {
-		@include font-wremena;
-		@include text-xl;
-		text-transform: uppercase;
-	}
-	#post-meta {
-		padding: 2rem 0 5rem 0;
-	}
-	p {
-		@include text-md;
-		margin: 0 0 2rem 0;
-		&:last-child {
-			margin-bottom: 0;
+		h1#post-title {
+			padding: 0 0 2rem 0;
+			@include font-wremena;
+			@include text-xl;
+			text-align: center;
 		}
-	}
-	h2, h3, h4 {
-		margin: 4rem auto 2rem auto;
-		text-align: center;
-		font-weight: 900;
-		@include text-lg;
-	}
-	h2 {
-		@include text-lg;
-	}
-	h3 {
-		@include text-md;
-	}
-	blockquote {
-		max-width: $container-sm;
-		margin: 2rem auto;
-		font-weight: bold;
-		p {
+		#post-meta {
+			padding: 0 0 5rem 0;
+		}
+		p, li {
+			@include text-md;
+			margin: 0 0 2rem 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		h2, h3, h4 {
+			margin: 4rem auto 2rem auto;
+			text-align: center;
+			font-weight: 900;
 			@include text-lg;
-			&:last-of-type {
-				margin-bottom: .5rem;
-			}
 		}
-		cite {
-			@include text-sm;
+		h2 {
+			@include text-lg;
 		}
-	}
-	img {
-		width: 100%;
-		height: auto;
-	}
-	figure {
-		margin-top: 4rem;
-		margin-bottom: 4rem;
-		@include max-sm {
-			width: 100%;
+		h3 {
+			@include text-md;
+		}
+		blockquote {
+			max-width: $container-sm;
 			margin: 2rem auto;
-			float: none;
-			img {
+			font-weight: bold;
+			p {
+				@include text-lg;
+				&:last-of-type {
+					margin-bottom: .5rem;
+				}
+			}
+			cite {
+				@include text-sm;
+			}
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+		figure {
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+			@include max-sm {
 				width: 100%;
-				height: auto;
+				margin: 2rem auto;
+				float: none;
+				img {
+					width: 100%;
+					height: auto;
+				}
 			}
 		}
-	}
-	figcaption {
-		@include text-sm;
-		margin-bottom: 0
-	}
-	.wp-block-embed {
-		> div {
-			width: 100%;
-			padding-bottom: 57%;
-			margin: auto;
-			position: relative;
-			@include min-lg {
-				width: 70%;
-				padding-bottom: 40%;
-			}
+		figcaption {
+			@include text-sm;
+			margin-bottom: 0
 		}
-		iframe {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			left: 0;
-			top: 0;
+		.wp-block-embed {
+			> div {
+				width: 100%;
+				padding-bottom: 57%;
+				margin: auto;
+				position: relative;
+				@include min-lg {
+					width: 70%;
+					padding-bottom: 40%;
+				}
+			}
+			iframe {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
 		}
 	}
 }

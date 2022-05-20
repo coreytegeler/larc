@@ -116,17 +116,19 @@ $colors: ("black": $black, "gray": $gray, "maize": $maize, "alabaster": $alabast
 }
 
 .bg-svg {
-	background-size: contain;
-	background-position: center;
+	background-size: 2em auto;
+	background-position: right center;
 	background-repeat: no-repeat;
 }
 .bg-arrow-right-black {
-	width: 10em;
-	height: 5em;
+	padding-right: 2.25em;
 	background-image: url(images/arrow-right-black.svg);
 }
 .bg-arrow-top-black {
-	width: 5em;
-	height: 10em;
+	padding-right: 2.25em;
 	background-image: url(images/arrow-top-black.svg);
+}
+.bg-arrow-right-alabaster {
+	padding-right: 2.25em;
+	background-image: url(images/arrow-right-alabaster.svg);
 }

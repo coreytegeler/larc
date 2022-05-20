@@ -57,7 +57,7 @@ header#site-header {
 	padding: 2rem 0;
 }
 
-#site-title {
+#site-logo {
 	@include font-lemurmue;
 	@include text-xxl;
 	a {
@@ -70,10 +70,42 @@ header#site-header {
 	}
 }
 
+#site-title {
+	text-align: center;
+	padding: 0 1rem;
+	@include max-lg {
+		margin-bottom: 2rem;
+	}
+}
+
+#header-menu {
+	height: 100%;
+	display: flex;
+	ul {
+		display: flex;
+		list-style: none;
+		margin: auto 0 0 auto;
+		padding: 0;
+		@include max-lg {
+			margin: 0 auto;
+		}
+	}
+	li {
+		margin-right: 1em;
+	}
+}
+
 .search-form {
 	width: 100%;
+	max-width: 20rem;
 	position: relative;
-	margin: auto;
+	margin: auto auto 0 auto;
+	@include max-lg {
+		margin: 0 2rem 0 2rem;
+	}
+	@include max-md {
+		margin: 1rem 2rem 0 2rem;
+	}
 }
 #header-search-input {
 	width: 100%;
@@ -122,6 +154,7 @@ header#site-header {
 *****************************/
 
 footer#site-footer {
+	margin: 6rem 0 0 0;
 	padding: 3rem 0 2rem 0;
 	background: $gray;
 	color: $alabaster;

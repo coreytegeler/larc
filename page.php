@@ -1,23 +1,19 @@
-<?php get_header();
-$page = $post; ?>
+<?php
+get_header();
+$page = $post;
+$author = get_field( 'author', $page );
+$date = date_format( date_create( $page->post_date ), 'j F Y' );
+?>
 
-<header id="page-header" class="top-header">
-	<div class="row no-gutters">
-		<div class="col">
-			<h1 id="page-title">
+<div class="row">
+	<div class="col-12 col-lg-6 col-xxl-5 mx-auto">
+		<header id="post-header">
+			<h1 id="post-title">
 				<?= $page->post_title; ?>
 			</h1>
-		</div>
-		<div class="col">
-			
-		</div>
-	</div>
-</header>
-
-<article>
-	<section>
+		</header>
 		<?= the_content( $page ); ?>
-	</section>
-</article>
+	</div>
+</div>
 
 <?php get_footer(); ?>

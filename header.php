@@ -12,6 +12,10 @@
 	if( $post ) {
 		$body_classes[] = $post->post_name;
 	}
+	if( ( $locations = get_nav_menu_locations() ) && isset( $locations['header'] ) ) {
+		$menu = wp_get_nav_menu_object( $locations['header'] );
+    $menu_items = wp_get_nav_menu_items($menu->term_id);
+	}
 	?>
 
 	<body <?php body_class( $body_classes ); ?>>
@@ -26,22 +30,23 @@
 
 		<header id="site-header" class="top-header container">
 			<div class="row">
-				<div class="col col-12 col-sm-4 order-2">
-					<div id="site-title">
+				<div class="col col-12 col-lg-6 order-lg-2">
+					<div id="site-logo">
 						<a href="/"
 							 tabindex="0">
 							LARC
-							<?#= get_bloginfo( 'title' ); ?>
 						</a>
 					</div>
+					<div id="site-title">
+						<?= get_bloginfo( 'title' ); ?>
+					</div>
 				</div>
-				<div class="col col-12 col-sm-4 order-1">
+				<div class="col col-12 col-sm-6 col-lg-3 order-lg-1">
 					<nav id="header-menu">
-						<?php if( $header_menu_items = wp_get_nav_menu_items( 'header' ) ) { ?>
+						<?php if( isset( $menu_items ) && $menu_items ) { ?>
 							<ul role="menubar"
-									aria-label="Main menu"
-									class="color-wheel">
-								<?php foreach ( $header_menu_items as $menu_item ) { ?>
+									aria-label="Main menu">
+								<?php foreach ( $menu_items as $menu_item ) { ?>
 									<li class="">
 										<a role="menuitem"
 											 href="<?= $menu_item->url; ?>">
@@ -53,7 +58,7 @@
 						<?php } ?>
 					</nav>
 				</div>
-				<div class="col col-12 col-sm-4 order-3 center-inner">
+				<div class="col col-12 col-sm-6 col-lg-3 order-lg-3 center-inner">
 					<?php get_search_form(); ?>
 				</div>
 		</header>

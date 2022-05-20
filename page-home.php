@@ -17,15 +17,16 @@ $page = $post; ?>
 </section>
 
 <?php
-$features = get_posts( array(
-	'post_type' => 'post',
-	'posts_per_page' => 1,
-	'tax_query' => array(
-		'taxonomy' => 'resource_type',
-		'field' => 'slug',
-		'terms' => 'featured'
-	)
-) );
+// $features = get_posts( array(
+// 	'post_type' => 'post',
+// 	'posts_per_page' => 1,
+// 	'tax_query' => array(
+// 		'taxonomy' => 'resource_type',
+// 		'field' => 'slug',
+// 		'terms' => 'featured'
+// 	)
+// ) );
+$features = array();
 if( sizeof( $features ) ) {
 	$feature = $features[0]; ?>
 	<section id="featured" class="bg-maize">
@@ -60,28 +61,44 @@ if( sizeof( $features ) ) {
 <?php } ?>
 
 <?php
+$resources_page = get_page_by_path( 'resources' );
+$about_page = get_page_by_path( 'about' );
+$mission_page = get_page_by_path( 'mission' );
+
 $resources = get_posts( array(
-	'post_type' => 'post',
+	'post_type' => 'resource',
 	'posts_per_page' => 4,
-	'exclude' => $feature->ID
+	// 'exclude' => $feature->ID
 ) );
+
 if( sizeof( $resources ) ) { ?>
 	<section id="resources">
 		<div class="posts">
 			<div class="row no-gutters">
-				<div class="col-12 col-lg-6">
+				<div class="col-12 col-lg-6 bg-maize bordered">
 					<div class="p-5">
-						<h3 class="text-xl mb-5">Our Mission</h3>
+						<!-- <h3 class="mb-5">
+							Resources
+						</h3> -->
 						<div class="text-lg">
-							<?= get_field( 'mission', $post ); ?>
+							<?= get_field( 'latest_news', $post ); ?>
 						</div>
-						<div class="bg-svg bg-arrow-right-black"></div>
+						<div class="mt-5">
+							<?php if( $mission_page ) { ?>
+							<a href="<?= get_permalink( $resources_page ); ?>">
+								<strong class="text-xl bg-svg bg-arrow-right-black">
+									View all resources
+								</strong>
+							</a>
+						<?php } ?>
+						</div>
 					</div>
 				</div>
+				
 				<?php foreach( $resources as $resource ) { ?>
 					<div class="col-12 col-sm-6 col-lg-3">
 						<article class="post bordered">
-							<a href="<?= get_permalink( $feature ); ?>" class="article-inner">
+							<a href="<?= get_permalink( $post ); ?>" class="article-inner">
 								<div class="post-meta">
 									<div class="row">
 										<div class="col col-12 col-sm-auto">
@@ -94,7 +111,7 @@ if( sizeof( $resources ) ) { ?>
 										</div>
 									</div>
 								</div>
-								<header>
+								<header class="m-auto">
 									<div class="post-thumbnail">
 										<?= get_the_post_thumbnail( $resource ); ?>
 									</div>
@@ -118,14 +135,31 @@ if( sizeof( $resources ) ) { ?>
 						</article>
 					</div>
 				<?php } ?>
-				<div class="col-12 col-lg-6 bg-gray text-alabaster">
+
+				<div class="col-12 col-lg-6 bg-gray text-alabaster bordered">
 					<div class="p-5">
-						<h3 class="text-xl mb-5">Latest News</h3>
 						<div class="text-lg">
-							<?= get_field( 'latest_news', $post ); ?>
+							<?= get_field( 'mission', $post ); ?>
 						</div>
+						<br/>
+						<?php if( $about_page ) { ?>
+							<a href="<?= get_permalink( $about_page ); ?>">
+								<strong class="text-xl mb-5 bg-svg bg-arrow-right-alabaster text-alabaster">
+									About the project
+								</strong>
+							</a>
+						<?php } ?>
+						<br/><br/>
+						<?php if( $mission_page ) { ?>
+							<a href="<?= get_permalink( $mission_page ); ?>">
+								<strong class="text-xl mb-5 bg-svg bg-arrow-right-alabaster text-alabaster">
+									Our mission
+								</strong>
+							</a>
+						<?php } ?>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</section>
